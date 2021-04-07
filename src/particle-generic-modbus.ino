@@ -211,7 +211,7 @@ int set_unsigned(String command) {
     	if (modbus_code == node.ku8MBSuccess) {
             modbus_value = node.getResponseBuffer(0);
             cmd_resp(FUNCTION_NAME,command,MODBUS_VALUE_TO_STRING(modbus_value),0);
-        	return (int16_t) modbus_value;
+        	return (uint16_t) modbus_value;
 		} else { cmd_resp(FUNCTION_NAME,command,"",-2); return -2; }
 	} else {	
 		int offset = command.substring(0,i-1).toInt();
@@ -224,7 +224,7 @@ int set_unsigned(String command) {
 	    if (modbus_code == node.ku8MBSuccess) {
 	       	modbus_value = node.getResponseBuffer(0);
 	       	cmd_resp(FUNCTION_NAME,command,MODBUS_VALUE_TO_STRING(modbus_value),0);
-	       	return (int16_t) modbus_value;
+	       	return (uint16_t) modbus_value;
 		} else { cmd_resp(FUNCTION_NAME,command,"",-4); return -4; }
 	}
 }
