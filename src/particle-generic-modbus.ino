@@ -92,8 +92,11 @@ void setup() {
 	// Edit or comment out to control what options are presented 
 	// in the Particle.io mobile app interface
 	// Also remember to add function calls to ParticleFunctionCaller()
-    Particle.function("GetOrSet_Register_Unsigned_regORregEQvalue_0_65535",set_unsigned);
-    Particle.function("GetOrSet_Register_Signed_regORregEQvalue_-32767_32767",set_signed);
+	// Get or Set Modbus Holding Registers
+	// register number - returns current value
+	// register number = value - sets current value
+    Particle.function("GetOrSet_Unsigned_regORregEQvalue_0_65535",set_unsigned);
+    Particle.function("GetOrSet_Signed_regORregEQvalue_-32767_32767",set_signed);
 
     // Handle incoming function calls via subscribe
     // Uncomment the following line to allow webhooks to respond with particle function calls
