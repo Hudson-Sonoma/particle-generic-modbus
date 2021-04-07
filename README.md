@@ -82,6 +82,10 @@ Each particle command posts a JSON event to report its operation. The event is a
 ]
 ```
 
+error:0 - Successfully read/wrote modbus holding register
+error:-2,-3 - Could not reach the modbus device (default device id 1, 9600, N81)
+error: -4 - Could not parse command.
+
 
 ### Particle Events
 
