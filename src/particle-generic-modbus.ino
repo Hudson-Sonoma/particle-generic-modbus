@@ -1,8 +1,21 @@
-	/*
- * Project Generic Modbus Driver for Particle Gen3 Hardware (Argon wifi or Boron cellular)
- * Description: modbus driver - get and set 16bit integer values (signed or unsigned)
- * Author: tim@hudsonsonoma.com
- * Date: 25 March 2021
+/*
+    particle-generic-modbus - get / set modbus device registers
+    Copyright (C) 2021 Hudson Sonoma LLC
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+    Contact: <tim at hudson sonoma dot com>
  */
 
 SYSTEM_MODE(AUTOMATIC);
@@ -80,8 +93,6 @@ JsonWriterStatic<512> jw;
 
 void setup() {
 	pinMode(CTRL_PIN,OUTPUT);
-
-	//selectExternalMeshAntenna();  UNCOMMENT to select external antenna - ONLY IF IT IS CONNECTED.
 
 	node.begin(NODE_BAUD);
 	node.enableTXpin(CTRL_PIN);
@@ -280,20 +291,6 @@ void loop() {
 
 	delay(250);
 	
-}
-
-
-void selectExternalMeshAntenna()
-{
-#if   (PLATFORM_ID == PLATFORM_ARGON)
-	digitalWrite(ANTSW1, 1);
-	digitalWrite(ANTSW2, 0);
-#elif (PLATFORM_ID == PLATFORM_BORON)
-	digitalWrite(ANTSW1, 0);
-#elif (PLATFORM_ID == PLATFORM_XENON)
-	digitalWrite(ANTSW1, 0);
-	digitalWrite(ANTSW2, 1);
-#endif
 }
 
 
